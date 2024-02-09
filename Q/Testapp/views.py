@@ -21,6 +21,7 @@ def insert_view(request):
 def  delete_view(request,id):
    stu=Student.objects.get(id=id)
    stu.delete()
+   return redirect("/")
    
 
 def update_view(request,id):
@@ -31,5 +32,5 @@ def update_view(request,id):
         if frm.is_valid():
            frm.save()        
         return redirect("/")
-    return render(request,'tweaks/up.html',{'FRM':frm})
+    return render(request,'testapp/update.html',{'FRM':frm})
 
